@@ -27,13 +27,14 @@ router.get('/', function(req, res, next) {
   console.log(req.user);
 
 
+
   //cloudinary.api.resources(function(items){
   //  console.log(items);
   //
   //  res.render('index', { img: items.resources, title: 'Gallery' });
   //});
 
-  //res.render('index', { img: cloudinary.url("sample.jpg") });
+  res.render('index', {  });
 });
 
 module.exports = router;

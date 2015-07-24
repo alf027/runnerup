@@ -1,3 +1,10 @@
+<form method="post" action="/photos/uploads/{{user}}">
 {{#each photos}}
-    <img src="{{this}}" alt=""/>
+
+    <img src="{{this.url}}" alt=""/>
+        <input type="text" name="{{this.id}}"/>
+
+
 {{/each}}
+    <input type="submit" value="tag"/>
+</form>

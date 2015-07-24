@@ -1,12 +1,18 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
-{{#each img}}
-    {{this.url}}
-{{/each}}
+
+<form action="/photos/search" method="get">
+    <input type="text" name='tag' placeholder="search via bib number"/>
+    <input type="submit" value="search"/>
+</form>
+
+<!--{{#each img}}-->
+    <!--{{this.url}}-->
+<!--{{/each}}-->
 
 <!--<img src="{{img}}" alt=""/>-->
 
-<form action="/upload" method="post" enctype="multipart/form-data" >
-    <input type="file" name="upload" multiple/>
-    <input type="submit" value="submit"/>
-</form>
+<!--<form action="/upload" method="post" enctype="multipart/form-data" >-->
+    <!--<input type="file" name="upload" multiple/>-->
+    <!--<input type="submit" value="submit"/>-->
+<!--</form>-->
