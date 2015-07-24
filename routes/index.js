@@ -9,12 +9,31 @@ cloudinary.config({
   api_secret: process.env.API_SECRET
 });
 
+router.get('/login',function(req,res,next){
+  res.render('session/login',{})
+});
 
+router.get('/register',function(req,res,next){
+  res.render('session/register',{})
+});
+
+router.get('/logout',function(req,res,next){
+  req.session=null;
+  res.redirect('/')
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(cloudinary.image("sample.jpg", { alt: "Sample Image" }));
-  res.render('index', { img: cloudinary.url("sample.jpg") });
+  console.log(req.user);
+
+
+  //cloudinary.api.resources(function(items){
+  //  console.log(items);
+  //
+  //  res.render('index', { img: items.resources, title: 'Gallery' });
+  //});
+
+  //res.render('index', { img: cloudinary.url("sample.jpg") });
 });
 
 module.exports = router;
