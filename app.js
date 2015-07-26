@@ -81,6 +81,11 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (user, done) {
   done(null, user);
 });
+
+app.get('/styleguide',function(req,res,next){
+  res.render('styleguide',{})
+});
+
 app.post('/local-login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/login'
@@ -133,6 +138,7 @@ app.use(function (req, res, next) {
 
 // development error handler
 // will print stacktrace
+
 if (app.get('env') === 'development') {
   app.use(function (err, req, res, next) {
     res.status(err.status || 500);

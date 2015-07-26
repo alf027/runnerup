@@ -1,0 +1,84 @@
+.main {
+  width: 60%;
+  margin: 0 auto;
+}
+
+//body {
+//  max-width: 100%;
+//}
+
+.columns:before,
+.columns:after {
+  content:"";
+  display:table;
+}
+.columns:after {
+  clear:both;
+}
+.columns {
+  zoom:1;
+  overflow: hidden;
+}
+
+.column {
+  float: left;
+}
+
+.half-col {
+  width: 50%;
+  float: left;
+}
+
+.one.columns .column, .column-one{
+  width: 100%;
+}
+
+.two.columns .column, .column-two {
+  width: 50%;
+}
+
+
+
+.columns.three .column, .column-three {
+  width: 33.33333%;
+}
+
+.four.columns .column, .column.column-four {
+  width: 25%;
+}
+
+.five.columns .column, .column-five {
+  width: 20%;
+}
+
+.six.columns .column, .column-six {
+  width: 16.666666667%;
+}
+
+.seven.columns .column, .column-seven {
+  width: 14.285714286%;
+}
+
+.eight.columns .column, .column-eight {
+  width: 12.5%;
+}
+
+.nine.columns .column, .column-nine {
+  width: 11.11111%;
+}
+
+.ten.columns .column, .column-ten {
+  width: 10%;
+}
+
+.eleven.columns .column, .column-eleven {
+  width: 9.0909090909%;
+}
+
+.twelve.columns .column, .column-twelve {
+  width: 8.3333333333%;
+}
+
+.centered {
+  margin: 0 auto;
+}
