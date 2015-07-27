@@ -1,9 +1,9 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1 class="centered">Welcome to Runner Up Photo</h1>
+<p>{{title}}</p>
 
-<form action="/photos/search" method="get">
-    <input type="text" name='tag' placeholder="search via bib number"/>
-    <input type="submit" value="search"/>
+<form action="/photos/search" class="search-form" method="get">
+    <input type="text" class="main-search" name='tag' placeholder="search via bib number"/>
+    <input class="search-but btn centered" type="submit" value="search"/>
 </form>
 
 <!--{{#each img}}-->

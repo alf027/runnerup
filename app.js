@@ -9,7 +9,7 @@ var db = require('monk')('localhost/runnerUp');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var photos= require('./routes/photos');
+var photos = require('./routes/photos');
 
 var unirest = require('unirest');
 var cloudinary = require('cloudinary');
@@ -30,12 +30,9 @@ cloudinary.config({
 
 var app = express();
 
-var userCheck = function(req,res,next) {
-  if(!req.user) {
-    res.redirect('/login')
-  }
-  next()
-};
+
+
+
 
 app.set('trust proxy', 1);// trust first proxy
 
@@ -65,7 +62,7 @@ passport.use(new LocalStrategy(
       var users = db.get('users');
       users.findOne({email: username}, function (err, doc) {
         if (bcrypt.compareSync(password, doc.password)) {
-          return done(null, {username: doc.email, id:doc._id})
+          return done(null, {username: doc.email, id: doc._id})
         }
         return done(null, false);
 
@@ -82,9 +79,18 @@ passport.deserializeUser(function (user, done) {
   done(null, user);
 });
 
-app.get('/styleguide',function(req,res,next){
-  res.render('styleguide',{})
+app.get('/styleguide', function (req, res, next) {
+  res.render('styleguide', {})
 });
+
+app.use(function (req, res, next) {
+  console.log('user')
+  console.log(req.user)
+  res.locals.user = req.user;
+  //res.locals.authenticated = !req.user.anonymous;
+  next();
+});
+
 
 app.post('/local-login', passport.authenticate('local', {
   successRedirect: '/',
@@ -123,8 +129,9 @@ app.post('/local-reg', function (req, res, next) {
 //});
 
 
+
 app.use('/', routes);
-app.use('/photos',photos);
+app.use('/photos', photos);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

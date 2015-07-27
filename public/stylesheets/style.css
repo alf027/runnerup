@@ -415,14 +415,69 @@ th {
   width: 8.3333333333%; }
 
 .centered {
+  text-align: center;
   margin: 0 auto; }
 
 body {
-  font-family: 'Roboto Slab', serif; }
-
-.main-header {
-  background-color: grey;
-  padding: 60px; }
+  font-family: 'Roboto', sans-serif; }
 
 .main-nav {
-  text-align: right; }
+  text-align: right;
+  background: #303F9F;
+  padding: 30px; }
+
+.main-nav a {
+  margin-right: 40px;
+  color: white;
+  text-decoration: none; }
+
+.logo {
+  color: white;
+  position: absolute;
+  top: 3px;
+  left: 40px;
+  display: inline-block; }
+
+input[type=text] {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0; }
+
+::-webkit-input-placeholder {
+  font-size: 16px;
+  font-weight: bold; }
+
+:-moz-placeholder {
+  /* older Firefox*/
+  font-size: 16px;
+  font-weight: bold; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 16px;
+  font-weight: bold; }
+
+:-ms-input-placeholder {
+  font-size: 16px;
+  font-weight: bold; }
+
+.main-search {
+  width: 50%;
+  height: 40px; }
+
+.search-form {
+  margin-top: 200px;
+  text-align: center; }
+
+.search-but {
+  margin-left: 30px;
+  background: #3F51B5; }
+
+.btn {
+  border: none;
+  color: white;
+  overflow: hidden;
+  padding: 0;
+  text-transform: uppercase;
+  width: 150px;
+  height: 40px; }

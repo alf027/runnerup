@@ -1,0 +1,56 @@
+  input[type=text] {
+    border-top: 0;
+    border-left: 0;
+    border-right:0;
+  }
+
+  ::-webkit-input-placeholder {
+    font-size: 16px;
+    //tex
+    //padding:8em;
+    font-weight: bold;
+  }
+  :-moz-placeholder { /* older Firefox*/
+    font-size: 16px;
+    //padding:8em;
+    font-weight: bold;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    font-size: 16px;
+    //padding:8em;
+    font-weight: bold;
+  }
+  :-ms-input-placeholder {
+    font-size: 16px;
+    //padding: 8em;
+    font-weight: bold;
+  }
+
+  .main-search {
+    width:50%;
+    height:40px;
+  }
+
+  .search-form {
+    margin-top: 200px;
+    text-align: center;
+
+  }
+
+  .search-but {
+    margin-left: 30px;
+    //display: block;
+    background: $blue-pri
+  }
+
+
+  .btn {
+    border: none;
+    color: white;
+    overflow: hidden;
+    padding: 0;
+    text-transform: uppercase;
+    width: 150px;
+    height: 40px;
+
+  }

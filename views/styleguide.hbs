@@ -148,20 +148,36 @@
 <h4>Form Example</h4>
 <form>
   <p>
-    <label>Name</label>
-    <input type='text' />
+
+    <input type='text' placeholder="Name" />
   </p>
   <p>
-    <label>Email</label>
-    <input type='text' />
+
+    <input type='text' placeholder="Email" />
   </p>
   <fieldset>
+      <!--<p>-->
+          <!--<input name="group1" type="radio" id="test1" />-->
+          <!--<label for="test1">Red</label>-->
+      <!--</p>-->
+      <!--<p>-->
+          <!--<input name="group1" type="radio" id="test2" />-->
+          <!--<label for="test2">Yellow</label>-->
+      <!--</p>-->
+      <!--<p>-->
+          <!--<input class="with-gap" name="group1" type="radio" id="test3"  />-->
+          <!--<label for="test3">Green</label>-->
+      <!--</p>-->
+      <!--<p>-->
+          <!--<input name="group1" type="radio" id="test4" disabled="disabled" />-->
+          <!--<label for="test4">Brown</label>-->
+      <!--</p>-->
     <legend>Gender</legend>
     <p>
-      <input type='radio' />
-      <label>Male</label>
-      <input type='radio' />
-      <label>Female</label>
+      <input name="group1" type="radio" id="test1" />
+      <label for="test1">Male</label>
+      <input type='radio' name="group1" id="test2" />
+      <label for="test2">Female</label>
       <input type='radio' />
       <label>Other</label>
     </p>
@@ -183,8 +199,10 @@
     </select>
   </p>
   <p>
-    <input type='checkbox' />
-    <label>Agree to Terms &amp; Conditions</label>
+      <!--<input type="checkbox" id="test5" />-->
+      <!--<label for="test5">Red</label>-->
+    <input id='checkbox' type='checkbox' />
+    <label for='checkbox'>Agree to Terms &amp; Conditions</label>
   </p>
   <p>
     <label>Message</label>

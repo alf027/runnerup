@@ -1,9 +1,26 @@
-.main-header {
-
-  background-color: grey;
-  padding:60px;
-}
+//.main-header {
+//
+//  background-color: grey;
+//  padding:60px;
+//}
 
 .main-nav {
   text-align: right;
+  background:$blue-sec;
+  padding:30px;
+
+}
+
+.main-nav a {
+  margin-right: 40px;
+  color:white;
+  text-decoration:none;
+}
+
+.logo {
+  color:white;
+  position:absolute;
+  top:3px;
+  left:40px;
+  display: inline-block;
 }
