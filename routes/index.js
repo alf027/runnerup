@@ -10,11 +10,11 @@ cloudinary.config({
 });
 
 router.get('/login',function(req,res,next){
-  res.render('session/login',{})
+  res.render('session/login',{title:'Login'})
 });
 
 router.get('/register',function(req,res,next){
-  res.render('session/register',{})
+  res.render('session/register',{title:'Register'})
 });
 
 router.get('/logout',function(req,res,next){
@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
   //  res.render('index', { img: items.resources, title: 'Gallery' });
   //});
 
-  res.render('index', {  });
+  res.render('index', {title:'Runner Up Photo'});
 });
 
 module.exports = router;

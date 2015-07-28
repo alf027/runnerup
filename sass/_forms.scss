@@ -1,56 +1,132 @@
-  input[type=text] {
-    border-top: 0;
-    border-left: 0;
-    border-right:0;
-  }
+input:focus {
+border-bottom-color: $blue-backup;
+  outline: none;
+}
 
-  ::-webkit-input-placeholder {
-    font-size: 16px;
-    //tex
-    //padding:8em;
-    font-weight: bold;
-  }
-  :-moz-placeholder { /* older Firefox*/
-    font-size: 16px;
-    //padding:8em;
-    font-weight: bold;
-  }
-  ::-moz-placeholder { /* Firefox 19+ */
-    font-size: 16px;
-    //padding:8em;
-    font-weight: bold;
-  }
-  :-ms-input-placeholder {
-    font-size: 16px;
-    //padding: 8em;
-    font-weight: bold;
-  }
+textarea:focus {
+  border-bottom-color: $blue-backup;
+  outline: none;
+}
 
-  .main-search {
-    width:50%;
-    height:40px;
-  }
+input[type=text] {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
 
-  .search-form {
-    margin-top: 200px;
-    text-align: center;
+textarea {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom-width: 2px;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
 
-  }
+  //border-bottom-color: inherit;
+}
 
-  .search-but {
-    margin-left: 30px;
-    //display: block;
-    background: $blue-pri
-  }
+input[type=email] {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
 
+input[type=password] {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
 
-  .btn {
-    border: none;
-    color: white;
-    overflow: hidden;
-    padding: 0;
-    text-transform: uppercase;
-    width: 150px;
-    height: 40px;
+input[type=submit] {
+  display: block;
+  background: white;
+  color: $blue-pri;
+  border: 2px solid $blue-pri;
+  overflow: hidden;
+  padding: 0;
+  text-transform: uppercase;
+  width: 150px;
+  height: 40px;
+  //margin-top: 20px;
+  margin: 20px auto 0 auto;
+}
 
-  }
+::-webkit-input-placeholder {
+  font-size: 16px;
+  //tex
+  padding: 2px;
+  font-weight: bold;
+}
+
+:-moz-placeholder {
+  /* older Firefox*/
+  font-size: 16px;
+  padding: 2px;
+  font-weight: bold;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 16px;
+  padding: 2px;
+  //padding:8em;
+  font-weight: bold;
+}
+
+:-ms-input-placeholder {
+  font-size: 16px;
+  padding: 2px;
+  //padding: 8em;
+  font-weight: bold;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+form input {
+  width: 50%;
+  height: 40px;
+  background: white;
+}
+
+form textarea {
+  width: 50%;
+  height: 40px;
+}
+
+.main-search {
+  width: 50%;
+  height: 40px;
+}
+
+.padded-form {
+  margin-top: 200px;
+}
+
+.search-form {
+  margin-top: 200px;
+  text-align: center;
+
+}
+
+.search-but {
+  display: inline;
+  //margin-left: 30px;
+  ////display: block;
+  //background: white;
+  //color: $blue-pri;
+  //border-color: $blue-pri;
+
+}
+
+.btn-border {
+  background: white;
+  color: $blue-pri;
+  border: 2px solid $blue-pri;
+  overflow: hidden;
+  padding: 0;
+  text-transform: uppercase;
+  width: 150px;
+  height: 40px;
+
+}

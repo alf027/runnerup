@@ -80,7 +80,7 @@ passport.deserializeUser(function (user, done) {
 });
 
 app.get('/styleguide', function (req, res, next) {
-  res.render('styleguide', {})
+  res.render('styleguide', {title:'Styleguide'})
 });
 
 app.use(function (req, res, next) {

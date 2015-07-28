@@ -1,8 +1,9 @@
 <form method="post" action="/photos/uploads/{{user}}">
 {{#each photos}}
-
+<div class="photo">
     <img src="{{this.url}}" alt=""/>
-        <input type="text" name="{{this.id}}"/>
+        <input type="text" placeholder="Enter Bib Numbers Here" name="{{this.id}}"/>
+</div>
 
 
 {{/each}}

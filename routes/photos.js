@@ -25,7 +25,7 @@ router.get('/uploads/:user', userCheck, function(req,res,next) {
     docs.forEach(function(e){
       //console.log(e);
       //console.log(cloudinary.url(e.public_id, { width: 200, height: 300, crop: "fill" }));
-      urlArr.push({url:cloudinary.url(e.public_id, { width: 200, height: 300, crop: "fill" }), id: e.public_id})
+      urlArr.push({url:cloudinary.url(e.public_id, { width: 700, height: 500 }), id: e.public_id})
     });
 
     //console.log(req.params.user);
@@ -47,8 +47,8 @@ router.get('/search',function(req,res,next){
   photos.find({tags:req.query.tag},function(err,docs) {
     docs.forEach(function(e){
       console.log(e);
-      console.log(cloudinary.url(e.public_id, { width: 200, height: 300, crop: "fill" }));
-      urlArr.push({url:cloudinary.url(e.public_id, { width: 200, height: 300, crop: "fill" }), id: e.public_id})
+      console.log(cloudinary.url(e.public_id, { width: 200, height: 300 }));
+      urlArr.push({url:cloudinary.url(e.public_id, { width: 400, crop: "fill" }), id: e.public_id})
     });
     console.log(err);
     console.log(docs);
@@ -82,7 +82,7 @@ router.post('/uploads/:user',function(req,res,next) {
     });
     //console.log(p)
 
-    res.end('')
+    res.redirect('/photos/uploads')
 
   })
 
@@ -96,25 +96,47 @@ router.get('/uploads',userCheck,function(req,res,next){
 });
 
 router.post('/upload', function (req, res, next) {
-  console.log(req.body);
+  var photoArr = [];
+  var files = 0, finished = false;
   req.busboy.on('file', function (fieldname, file, filename) {
+    ++files;
     var stream = cloudinary.uploader.upload_stream(function (result) {
+      console.log('in stream');
         console.log(result);
-      var dbEntry = result;
+      if (--files === 0 && finished) {
+        console.log('inside if');
+        res.redirect('/photos/uploads/' + req.user.id)
+      }
+
+      //var dbEntry = result;
+      //var photoObj = {public_id:result.public_id, uploader:req.user.id, url:result.url, needsTagging:true};
+      //photoArr.push(photoObj);
       photos.insert({public_id:result.public_id, uploader:req.user.id, url:result.url, needsTagging:true},function(err,doc){
         if(!err){
         }
+        console.log('inserting photo in db');
         //console.log(doc);
       })
       } , {tags: req.user.id});
 
 
     file.pipe(stream);
+    stream.on('finish' , function (test) {
+      console.log(test);
+      console.log('end stream')
+    })
+    stream.on('close',function(){
+      console.log('close')
+    })
+
   });
 
   req.busboy.on('finish', function() {
-    console.log('Done parsing form!');
-    res.redirect('/photos/uploads/' + req.user.id)
+    finished = true;
+    //photoArr.forEach(function (e) {
+    //  console.log(e)
+    //});
+
 
 
   });
