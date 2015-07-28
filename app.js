@@ -107,6 +107,7 @@ app.post('/local-reg', function (req, res, next) {
   };
   users.insert(user, function (err, doc) {
     console.log(doc);
+    doc.id=doc._id;
 
     req.login(doc, function(err,test) {
       console.log(test);
