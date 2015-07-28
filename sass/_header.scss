@@ -1,9 +1,30 @@
-.main-header {
-
-  background-color: grey;
-  padding:60px;
-}
+//.main-header {
+//
+//  background-color: grey;
+//  padding:60px;
+//}
 
 .main-nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
   text-align: right;
+  background:$blue-sec;
+  padding:30px;
+
+}
+
+.main-nav a {
+  margin-right: 40px;
+  color:white;
+  text-decoration:none;
+}
+
+.logo {
+  color:white;
+  position:absolute;
+  top:3px;
+  left:40px;
+  display: inline-block;
 }

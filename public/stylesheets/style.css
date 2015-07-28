@@ -357,7 +357,7 @@ th {
 
 .main {
   width: 60%;
-  margin: 0 auto; }
+  margin: 200px auto 0 auto; }
 
 .columns:before,
 .columns:after {
@@ -415,14 +415,129 @@ th {
   width: 8.3333333333%; }
 
 .centered {
+  text-align: center;
   margin: 0 auto; }
 
 body {
-  font-family: 'Roboto Slab', serif; }
-
-.main-header {
-  background-color: grey;
-  padding: 60px; }
+  font-family: 'Roboto', sans-serif; }
 
 .main-nav {
-  text-align: right; }
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: right;
+  background: #303F9F;
+  padding: 30px; }
+
+.main-nav a {
+  margin-right: 40px;
+  color: white;
+  text-decoration: none; }
+
+.logo {
+  color: white;
+  position: absolute;
+  top: 3px;
+  left: 40px;
+  display: inline-block; }
+
+input:focus {
+  border-bottom-color: #536DFE;
+  outline: none; }
+
+textarea:focus {
+  border-bottom-color: #536DFE;
+  outline: none; }
+
+input[type=text] {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0; }
+
+textarea {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom-width: 2px;
+  border-bottom-color: rgba(0, 0, 0, 0.1); }
+
+input[type=email] {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0; }
+
+input[type=password] {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0; }
+
+input[type=submit] {
+  display: block;
+  background: white;
+  color: #3F51B5;
+  border: 2px solid #3F51B5;
+  overflow: hidden;
+  padding: 0;
+  text-transform: uppercase;
+  width: 150px;
+  height: 40px;
+  margin: 20px auto 0 auto; }
+
+::-webkit-input-placeholder {
+  font-size: 16px;
+  padding: 2px;
+  font-weight: bold; }
+
+:-moz-placeholder {
+  /* older Firefox*/
+  font-size: 16px;
+  padding: 2px;
+  font-weight: bold; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 16px;
+  padding: 2px;
+  font-weight: bold; }
+
+:-ms-input-placeholder {
+  font-size: 16px;
+  padding: 2px;
+  font-weight: bold; }
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset; }
+
+form input {
+  width: 50%;
+  height: 40px;
+  background: white; }
+
+form textarea {
+  width: 50%;
+  height: 40px; }
+
+.main-search {
+  width: 50%;
+  height: 40px; }
+
+.padded-form {
+  margin-top: 200px; }
+
+.search-form {
+  margin-top: 200px;
+  text-align: center; }
+
+.search-but {
+  display: inline; }
+
+.btn-border {
+  background: white;
+  color: #3F51B5;
+  border: 2px solid #3F51B5;
+  overflow: hidden;
+  padding: 0;
+  text-transform: uppercase;
+  width: 150px;
+  height: 40px; }

@@ -3,21 +3,39 @@
 <head>
     <title>{{title}}</title>
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">-->
+
     <link rel='stylesheet' href='/stylesheets/style.css'/>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>-->
 </head>
 <body>
 <header class="main-header">
+
     <nav class="main-nav">
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
-        <a href="/logout">Logout</a>
+        <a href="/"><h1 class="logo">{{title}}</h1></a>
+        <a href="">{{user.username}}</a>
+        <a href="/">Home</a>
+        <a href="/photos/uploads">Upload Photos</a>
+        {{#if user}}
+
+            <a href="/logout">Logout</a>
+        {{else}}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        {{/if}}
+
+
     </nav>
 </header>
 
 <main class="main">
     {{{body}}}
 </main>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!--&lt;!&ndash;&ndash;&gt;-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>-->
+
 <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
 <!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
 </body>
