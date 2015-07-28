@@ -58,7 +58,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 passport.use(new LocalStrategy(
-    function (username, password, done) {
+       function (username, password, done) {
+         console.log('in local strat');
       var users = db.get('users');
       users.findOne({email: username}, function (err, doc) {
         if (bcrypt.compareSync(password, doc.password)) {
@@ -108,10 +109,16 @@ app.post('/local-reg', function (req, res, next) {
   users.insert(user, function (err, doc) {
     console.log(doc);
 
-    passport.authenticate('local', {
-      successRedirect: '/',
-      failureRedirect: '/login'
-    })
+    req.login(doc, function(err,test) {
+      console.log(test);
+      if (err) {
+        console.log(err);
+      } else {
+        return res.redirect('/');
+      }
+
+    });
+    //res.redirect('/')
   })
 });
 
