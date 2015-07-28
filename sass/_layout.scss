@@ -1,17 +1,32 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+.instructions {
+  padding:10px;
+  line-height: 25px;
+
+}
+.instructions h2 {
+  color: $blue-sec;
+
+}
 .main {
   //margin-top: 300px;
   width: 60%;
-  margin: 200px auto 0 auto;
+  margin: 0 auto;
 }
 
 .links {
   display: inline-block;
-  margin-right: 40px;
+  //margin-right: 40px;
 }
 
-//body {
-//  max-width: 100%;
-//}
+body {
+  max-width: 100%;
+}
 
 
 .columns:before,
