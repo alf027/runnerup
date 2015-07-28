@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var cloudinary = require('cloudinary');
-var db = require('monk')('localhost/runnerUp');
+var db = require('monk')(process.env.MONGOLAB_URI);
 var photos = db.get('photos');
 
 cloudinary.config({
