@@ -359,6 +359,10 @@ th {
   width: 60%;
   margin: 200px auto 0 auto; }
 
+.links {
+  display: inline-block;
+  margin-right: 40px; }
+
 .columns:before,
 .columns:after {
   content: "";

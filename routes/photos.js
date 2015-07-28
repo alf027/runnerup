@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var cloudinary = require('cloudinary');
 var db = require('monk')(process.env.MONGOLAB_URI);
+var users = db.get('users');
 var photos = db.get('photos');
 
 cloudinary.config({
@@ -23,7 +24,7 @@ router.get('/uploads/:user', userCheck, function(req,res,next) {
   photos.find({uploader:req.user.id, needsTagging:true},function(err,docs) {
     var urlArr=[];
     docs.forEach(function(e){
-      //console.log(e);
+      console.log(e);
       //console.log(cloudinary.url(e.public_id, { width: 200, height: 300, crop: "fill" }));
       urlArr.push({url:cloudinary.url(e.public_id, { width: 700, height: 500 }), id: e.public_id})
     });
@@ -48,23 +49,31 @@ router.get('/search',function(req,res,next){
     docs.forEach(function(e){
       console.log(e);
       console.log(cloudinary.url(e.public_id, { width: 200, height: 300 }));
-      urlArr.push({url:cloudinary.url(e.public_id, { width: 400, crop: "fill" }), id: e.public_id})
+      users.findOne({_id: e.uploader},function(err,doc){
+        console.log(doc);
+        urlArr.push({url:cloudinary.url(e.public_id, { width: 400, crop: "fill" }), id: e.public_id,uploader:doc.email})
+      })
+
     });
     console.log(err);
     console.log(docs);
-    res.render('photos/searchResults', {photos:urlArr})
+    res.render('photos/searchResults', {photos:urlArr,title:'Search Results'})
   })
 });
 
 router.post('/uploads/:user',function(req,res,next) {
+  console.log('request body ' + req.body);
   var propArr=[];
   for(var prop in req.body) {
+    console.log(prop)
     propArr.push(prop)
   }
+  console.log('prop arr ' + propArr)
 
   propArr.forEach(function(e){
+    console.log(e);
     photos.findOne({public_id:e},function(err,doc){
-      console.log(req.body[e]);
+      console.log ('this should be the tag ' + req.body[e]);
 
 
       //doc.tags = req.body[prop];
@@ -72,9 +81,9 @@ router.post('/uploads/:user',function(req,res,next) {
       if(req.body[e]) {
         console.log('in update');
         photos.updateById(doc._id,{ $set:{tags:req.body[e], needsTagging:false}} ,function(err,tagged){
-          console.log(req.body[prop]);
-          console.log(err);
-          console.log(tagged)
+          //console.log(req.body[prop]);
+          //console.log(err);
+          //console.log(tagged)
         });
       }
 
@@ -82,16 +91,16 @@ router.post('/uploads/:user',function(req,res,next) {
     });
     //console.log(p)
 
-    res.redirect('/photos/uploads')
 
-  })
 
+  });
+  res.redirect('/photos/uploads')
 });
 
 
 router.get('/uploads',userCheck,function(req,res,next){
 
-    res.render('photos/uploadphotos')
+    res.render('photos/uploadphotos',{title:'Upload Race Photos'})
 
 });
 

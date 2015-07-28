@@ -11,9 +11,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var photos = require('./routes/photos');
 
-var unirest = require('unirest');
 var cloudinary = require('cloudinary');
-var fs = require('fs');
 var busboy = require('connect-busboy');
 var bcrypt = require('bcrypt');
 var passport = require('passport');
@@ -36,6 +34,7 @@ var app = express();
 
 app.set('trust proxy', 1);// trust first proxy
 
+//fix these keys before release
 app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2']
@@ -63,7 +62,7 @@ passport.use(new LocalStrategy(
       var users = db.get('users');
       users.findOne({email: username}, function (err, doc) {
         if (bcrypt.compareSync(password, doc.password)) {
-          return done(null, {username: doc.email, id: doc._id})
+          return done(null, {email: doc.email, id: doc._id})
         }
         return done(null, false);
 
