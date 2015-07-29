@@ -1,7 +1,13 @@
-{{#each photos}}
-    <div class="padded-form">
-        <img src="{{this.url}}" alt=""/>
-        <p>uploaded by {{this.uploader}}</p>
-    </div>
+{{#if photos}}
+    {{#each photos}}
+        <div class="padded-form">
+            <img src="{{this.url}}" alt=""/>
+            <p>uploaded by {{this.uploader}}</p>
+        </div>
 
-{{/each}}
+    {{/each}}
+
+{{else}}
+    <h3 class="padded centered">Sorry no Photos have been found, please check back later!</h3>
+{{/if}}
+

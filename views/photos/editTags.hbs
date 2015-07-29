@@ -1,4 +1,9 @@
 <!--<h2 class="padded">you can insert multiple bib numbers by seperating them with a space</h2>-->
+<div class="padded centered">
+    <a class="centered" href="/users/profile/{{user.id}}/tagged">Your Tagged Photos</a>
+    <a class="centered" href="/photos/uploads/{{user.id}}">Your Untagged Photos</a>
+</div>
+
 <form class='padded-form' method="post" action="/photos/uploads/{{user.id}}">
 
 {{#each photos}}

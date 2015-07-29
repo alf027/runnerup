@@ -26,7 +26,7 @@ router.get('/uploads/:user', userCheck, function(req,res,next) {
     docs.forEach(function(e){
       console.log(e);
       //console.log(cloudinary.url(e.public_id, { width: 200, height: 300, crop: "fill" }));
-      urlArr.push({url:cloudinary.url(e.public_id, { width: 700, height: 500 }), id: e.public_id})
+      urlArr.push({url:cloudinary.url(e.public_id, { width: 700, height: 500, crop: "fit" }), id: e.public_id})
     });
 
     //console.log(req.params.user);

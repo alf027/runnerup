@@ -1,0 +1,27 @@
+<div class="padded centered">
+    <a class="centered" href="/users/profile/{{user.id}}/tagged">Your Tagged Photos</a>
+    <a class="centered" href="/photos/uploads/{{user.id}}">Your Untagged Photos</a>
+</div>
+
+<div class="padded">
+
+    {{#each photos}}
+        <div class="columns">
+
+            <div class="photo column column-two">
+                <img class="fit" src="{{this.url}}" alt=""/>
+
+
+
+                <!--<input type="text" placeholder="Enter Bib Numbers Here (separate tags with a space)" name="{{this.id}}"/>-->
+            </div>
+            <div class="tags column column-three">
+                <h3 class="">Tags: {{#each tags}}{{this}} {{/each}}</h3>
+            </div>
+        </div>
+
+
+
+    {{/each}}
+
+</div>
