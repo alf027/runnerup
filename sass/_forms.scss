@@ -51,30 +51,38 @@ input[type=submit] {
 }
 
 ::-webkit-input-placeholder {
+  line-height: .8em;
   font-size: 16px;
+  //margin-bottom: 2px;
   //tex
-  padding: 2px;
+  padding: 3px;
   font-weight: bold;
 }
 
 :-moz-placeholder {
+  line-height: .8em;
   /* older Firefox*/
   font-size: 16px;
-  padding: 2px;
+  //margin-bottom: 2px;
+  padding: 1px;
   font-weight: bold;
 }
 
 ::-moz-placeholder {
+  line-height: .8em;
   /* Firefox 19+ */
+  //margin-bottom: 2px;
   font-size: 16px;
-  padding: 2px;
+  padding: 1px;
   //padding:8em;
   font-weight: bold;
 }
 
 :-ms-input-placeholder {
+  line-height: .8em;
   font-size: 16px;
-  padding: 2px;
+  padding: 1px;
+  //margin-bottom: 2px;
   //padding: 8em;
   font-weight: bold;
 }
