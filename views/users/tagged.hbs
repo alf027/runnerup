@@ -3,25 +3,31 @@
     <a class="centered" href="/photos/uploads/{{user.id}}">Your Untagged Photos</a>
 </div>
 
-<div class="padded">
+{{#if photos}}
+    <div class="padded">
 
-    {{#each photos}}
-        <div class="columns">
+        {{#each photos}}
+            <div class="columns">
 
-            <div class="photo column column-two">
-                <img class="fit" src="{{this.url}}" alt=""/>
+                <div class="photo column column-two">
+                    <img class="fit" src="{{this.url}}" alt=""/>
 
 
 
-                <!--<input type="text" placeholder="Enter Bib Numbers Here (separate tags with a space)" name="{{this.id}}"/>-->
+                    <!--<input type="text" placeholder="Enter Bib Numbers Here (separate tags with a space)" name="{{this.id}}"/>-->
+                </div>
+                <div class="tags column column-three">
+                    <h3 class="">Tags: {{#each tags}}{{this}} {{/each}}</h3>
+                </div>
             </div>
-            <div class="tags column column-three">
-                <h3 class="">Tags: {{#each tags}}{{this}} {{/each}}</h3>
-            </div>
-        </div>
 
 
 
-    {{/each}}
+        {{/each}}
 
-</div>
+    </div>
+
+{{else}}
+    <h2 class="centered padded">No Images found. Please upload photos to start tagging</h2>
+{{/if}}
+

@@ -95,7 +95,7 @@ router.post('/uploads/:user',function(req,res,next) {
 
 
   });
-  res.redirect('/photos/uploads')
+  res.redirect('/users/profile/' + req.user.id + '/tagged')
 });
 
 

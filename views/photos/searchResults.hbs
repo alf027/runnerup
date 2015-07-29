@@ -1,13 +1,31 @@
 {{#if photos}}
-    {{#each photos}}
-        <div class="padded-form">
-            <img src="{{this.url}}" alt=""/>
-            <p>uploaded by {{this.uploader}}</p>
-        </div>
+    <div class="padded" id="searchResults">
+        {{#each photos}}
 
-    {{/each}}
+
+            <div class="columns">
+
+                <div class="photo column column-two">
+                    <img class="fit" src="{{this.url}}" alt=""/>
+
+
+                    <!--<input type="text" placeholder="Enter Bib Numbers Here (separate tags with a space)" name="{{this.id}}"/>-->
+                </div>
+                <div class="tags column column-three">
+                    <h3 class="">uploaded by {{this.uploader}}</h3>
+                </div>
+            </div>
+
+
+
+        {{/each}}
+
+    </div>
+    <!--</div>-->
 
 {{else}}
     <h3 class="padded centered">Sorry no Photos have been found, please check back later!</h3>
 {{/if}}
+
+
 

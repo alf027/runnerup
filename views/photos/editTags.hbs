@@ -3,16 +3,20 @@
     <a class="centered" href="/users/profile/{{user.id}}/tagged">Your Tagged Photos</a>
     <a class="centered" href="/photos/uploads/{{user.id}}">Your Untagged Photos</a>
 </div>
+{{#if photos}}
+    <form class='padded' method="post" action="/photos/uploads/{{user.id}}">
 
-<form class='padded-form' method="post" action="/photos/uploads/{{user.id}}">
-
-{{#each photos}}
-<div class="photo">
-    <img src="{{this.url}}" alt=""/>
-        <input type="text" placeholder="Enter Bib Numbers Here (separate tags with a space)" name="{{this.id}}"/>
-</div>
+        {{#each photos}}
+            <div class="photo">
+                <img src="{{this.url}}" alt=""/>
+                <input type="text" placeholder="Enter Bib Numbers Here (separate tags with a space)" name="{{this.id}}"/>
+            </div>
 
 
-{{/each}}
-    <input type="submit" value="tag"/>
-</form>
+        {{/each}}
+        <input type="submit" value="tag"/>
+    </form>
+
+{{else}}
+    <h2 class="padded centered">No untagged photos found</h2>
+{{/if}}
