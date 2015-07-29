@@ -360,6 +360,9 @@ th {
 *:before {
   box-sizing: border-box; }
 
+.padded {
+  padding-top: 100px; }
+
 .instructions {
   padding: 10px;
   line-height: 25px; }
@@ -549,25 +552,29 @@ input[type=submit] {
   margin: 20px auto 0 auto; }
 
 ::-webkit-input-placeholder {
+  line-height: .8em;
   font-size: 16px;
-  padding: 2px;
+  padding: 3px;
   font-weight: bold; }
 
 :-moz-placeholder {
+  line-height: .8em;
   /* older Firefox*/
   font-size: 16px;
-  padding: 2px;
+  padding: 1px;
   font-weight: bold; }
 
 ::-moz-placeholder {
+  line-height: .8em;
   /* Firefox 19+ */
   font-size: 16px;
-  padding: 2px;
+  padding: 1px;
   font-weight: bold; }
 
 :-ms-input-placeholder {
+  line-height: .8em;
   font-size: 16px;
-  padding: 2px;
+  padding: 1px;
   font-weight: bold; }
 
 input:-webkit-autofill {

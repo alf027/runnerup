@@ -31,7 +31,7 @@ router.get('/uploads/:user', userCheck, function(req,res,next) {
 
     //console.log(req.params.user);
     //console.log(docs);
-    res.render('photos/editTags',{photos:urlArr})
+    res.render('photos/editTags',{photos:urlArr,title:"Edit Tags"})
   })
 });
 
@@ -45,7 +45,7 @@ router.get('/search',function(req,res,next){
   var urlArr = [];
   console.log(req.body);
   console.log(req.query.tag);
-  photos.find({tags:req.query.tag},function(err,docs) {
+  photos.find({tags:{$eq:req.query.tag}},function(err,docs) {
     docs.forEach(function(e){
       console.log(e);
       console.log(cloudinary.url(e.public_id, { width: 200, height: 300 }));
@@ -74,13 +74,14 @@ router.post('/uploads/:user',function(req,res,next) {
     console.log(e);
     photos.findOne({public_id:e},function(err,doc){
       console.log ('this should be the tag ' + req.body[e]);
+      console.log(req.body[e].split(' '));
 
 
       //doc.tags = req.body[prop];
       //doc.needsTagging = false;
       if(req.body[e]) {
         console.log('in update');
-        photos.updateById(doc._id,{ $set:{tags:req.body[e], needsTagging:false}} ,function(err,tagged){
+        photos.updateById(doc._id,{ $set:{tags:req.body[e].split(' '), needsTagging:false}} ,function(err,tagged){
           //console.log(req.body[prop]);
           //console.log(err);
           //console.log(tagged)

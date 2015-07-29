@@ -1,8 +1,10 @@
-<form method="post" action="/photos/uploads/{{user.id}}">
+<!--<h2 class="padded">you can insert multiple bib numbers by seperating them with a space</h2>-->
+<form class='padded-form' method="post" action="/photos/uploads/{{user.id}}">
+
 {{#each photos}}
 <div class="photo">
     <img src="{{this.url}}" alt=""/>
-        <input type="text" placeholder="Enter Bib Numbers Here" name="{{this.id}}"/>
+        <input type="text" placeholder="Enter Bib Numbers Here (separate tags with a space)" name="{{this.id}}"/>
 </div>
 
 
