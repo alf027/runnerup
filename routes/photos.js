@@ -46,23 +46,24 @@ router.get('/search', function (req, res, next) {
   //console.log(req.query.tag);
   photos.find({tags: {$eq: req.query.tag}}, function (err, docs) {
     docs.forEach(function (e,i) {
-      console.log(e);
-      console.log(cloudinary.url(e.public_id, {width: 200, height: 300}));
+      //console.log(e);
+      //console.log(cloudinary.url(e.public_id, {width: 200, height: 300}));
       users.findOne({_id: e.uploader}, function (err, doc) {
-        console.log(doc);
+        //console.log(doc);
         urlArr.push({
           url: cloudinary.url(e.public_id, {width: 400, crop: "fill"}),
           id: e.public_id,
           uploader: doc.email
-        })
+        });
+        if (i===docs.length -1) {
+          console.log('inside if statement')
+          //console.log(docs);
+          console.log(urlArr);
+          res.render('photos/searchResults', {photos: urlArr, title: 'Search Results'})
+        }
       });
 
-      if (i===docs.length -1) {
-        //console.log(err);
-        //console.log(docs);
-        console.log(urlArr);
-        res.render('photos/searchResults', {photos: urlArr, title: 'Search Results'})
-      }
+
 
     });
 
