@@ -42,10 +42,10 @@ router.get('/uploads/:user', userCheck, function (req, res, next) {
 
 router.get('/search', function (req, res, next) {
   var urlArr = [];
-  console.log(req.body);
-  console.log(req.query.tag);
+  //console.log(req.body);
+  //console.log(req.query.tag);
   photos.find({tags: {$eq: req.query.tag}}, function (err, docs) {
-    docs.forEach(function (e) {
+    docs.forEach(function (e,i) {
       console.log(e);
       console.log(cloudinary.url(e.public_id, {width: 200, height: 300}));
       users.findOne({_id: e.uploader}, function (err, doc) {
@@ -55,13 +55,17 @@ router.get('/search', function (req, res, next) {
           id: e.public_id,
           uploader: doc.email
         })
-      })
+      });
+
+      if (i===docs.length -1) {
+        //console.log(err);
+        //console.log(docs);
+        console.log(urlArr);
+        res.render('photos/searchResults', {photos: urlArr, title: 'Search Results'})
+      }
 
     });
-    console.log(err);
-    console.log(docs);
-    console.log(urlArr);
-    res.render('photos/searchResults', {photos: urlArr, title: 'Search Results'})
+
   })
 });
 
