@@ -56,7 +56,7 @@ router.get('/search', function (req, res, next) {
           uploader: doc.email
         });
         if (i===docs.length -1) {
-          console.log('inside if statement')
+          console.log('inside if statement');
           //console.log(docs);
           console.log(urlArr);
           res.render('photos/searchResults', {photos: urlArr, title: 'Search Results'})
